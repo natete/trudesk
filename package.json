@@ -15,7 +15,8 @@
     "webpackwatch": "webpack --config webpack.config.js --watch",
     "webpackdev": "webpack --config webpack.config.js",
     "webpackdist": "webpack --config webpack.config.dist.js",
-    "snyk-protect": "snyk protect"
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "ansi_up": "2.0.2",
@@ -79,7 +80,7 @@
     "sass-loader": "6.0.6",
     "script-loader": "0.7.2",
     "serve-favicon": "2.4.5",
-    "snyk": "^1.69.7",
+    "snyk": "^1.85.0",
     "socket.io": "2.0.4",
     "socket.io-client": "2.0.4",
     "style-loader": "0.20.2",
