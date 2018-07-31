@@ -85,20 +85,8 @@ mainController.dashboard = function (req, res) {
   return res.render('dashboard', content);
 };
 
-mainController.getLoginPostData = function (req) {
-  const username = req.body['login-username'];
-  const password = req.body['login-password'];
-
-
-  const postData = {
-    grant_type: 'password',
-    username: username,
-    password: password
-  };
-  return postData;
-};
 mainController.loginPost = function (req, res, next) {
-  const postData = this.getLoginPostData(req);
+  const postData = getLoginPostData(req);
 
   passportAuthentication(next, res, req);
 
@@ -115,6 +103,19 @@ mainController.loginPost = function (req, res, next) {
       handleMWLogin(error, response, body, req, res, next, postData);
     });
   }
+};
+
+let getLoginPostData = function (req) {
+  const username = req.body['login-username'];
+  const password = req.body['login-password'];
+
+
+  const postData = {
+    grant_type: 'password',
+    username: username,
+    password: password
+  };
+  return postData;
 };
 
 let passportAuthentication = function (next, res, req) {
